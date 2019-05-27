@@ -1,9 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
 
-import LoadingIcon from './../loading.png';
+import LoadingIcon from './../icons/loading.png';
 
 const LoadingTextContainer = styled.div`
+  padding-bottom: 1rem;
   font-size: 1.2rem;
 `;
 
