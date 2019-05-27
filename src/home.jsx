@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import config from './config';
 import { load } from './helpers/spreadsheet';
+import LoadingIndicator from './helpers/loading-indicator';
 
 import NavBar from './navigation-bar';
 import ChapterNavBar from './chapter-navigation-bar';
@@ -21,9 +22,10 @@ const HomeContainer = styled.div`
 const HomeContent = styled.div`
   max-width: 55rem;
   width: 55rem;
-  color: ghostwhite;
+  color: #070766;
   line-height: 1.1rem;
   background: #070766;
+  background: ghostwhite;
 `;
 
 const ChapterTitle = styled.p`
@@ -34,6 +36,7 @@ class Home extends Component {
   constructor() {
     super();
     this.state = {
+      isLoading: false,
       chapterIndex: 0,
       chapterTitle: 'The Reactor #1 raid',
     };
@@ -45,6 +48,9 @@ class Home extends Component {
   };
 
   refreshGuide = () => {
+    this.setState({
+      isLoading: true,
+    });
     // 2. Initialize the JavaScript client library.
     window.gapi.client
     .init({
@@ -62,6 +68,7 @@ class Home extends Component {
     if (data) {
       const chapters = data.chapters;
       this.setState({
+        isLoading: false,
         chapterTitle: chapters[this.state.chapterIndex].title,
         chapterContent: chapters[this.state.chapterIndex].content,
       });
@@ -98,10 +105,17 @@ class Home extends Component {
               goToPreviousChapter={this.goToPreviousChapter}
               goToNextChapter={this.goToNextChapter}
             />
-            <ChapterTitle>
-              {this.state.chapterIndex} - {this.state.chapterTitle}
-            </ChapterTitle>
-            <Chapter content={this.state.chapterContent}/>
+            {this.state.isLoading && (
+              <LoadingIndicator />
+            )}
+            {!this.state.isLoading && (
+              <Fragment>
+                <ChapterTitle>
+                  {this.state.chapterIndex} - {this.state.chapterTitle}
+                </ChapterTitle>
+                <Chapter content={this.state.chapterContent}/>
+              </Fragment>
+            )}
           </HomeContent>
         </HomeContainer>
       </Fragment>
