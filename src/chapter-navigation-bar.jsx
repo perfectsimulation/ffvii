@@ -5,6 +5,7 @@ import Pointer from './point.png';
 import Book from './table-of-contents-icon.png';
 
 const ChapterNavBarContainer = styled.div`
+  padding: 0.6rem;
   display: flex;
   flex-flow: row nowrap;
   width: 100%;
@@ -12,23 +13,24 @@ const ChapterNavBarContainer = styled.div`
 `;
 
 const BackPointerContainer = styled.img`
-  padding: 0.7rem;
   transform: rotate(90deg) scaleY(-1);
   height: 5rem;
-  width: 5rem;
+  width: auto;
+  cursor: pointer;
 `;
 
 const TableOfContentsIconContainer = styled.img`
-  padding: 0.6rem;
+  padding: 0 1rem;
   height: 5rem;
-  width: 5rem;
+  width: auto;
+  cursor: pointer;
 `;
 
 const ForwardPointerContainer = styled.img`
-  padding: 0.7rem;
   transform: rotate(90deg);
   height: 5rem;
-  width: 5rem;
+  width: auto;
+  cursor: pointer;
 `;
 
 class ChapterNavBar extends Component {
@@ -36,9 +38,9 @@ class ChapterNavBar extends Component {
     return (
       <Fragment>
         <ChapterNavBarContainer>
-          <BackPointerContainer src={Pointer} alt="Previous chapter"/>
+          <BackPointerContainer src={Pointer} alt="Previous chapter" onClick={this.props.goToPreviousChapter}/>
           <TableOfContentsIconContainer src={Book} alt="Table of contents"/>
-          <ForwardPointerContainer src={Pointer} alt="Next chapter"/>
+          <ForwardPointerContainer src={Pointer} alt="Next chapter" onClick={this.props.goToNextChapter}/>
         </ChapterNavBarContainer>
       </Fragment>
     );
