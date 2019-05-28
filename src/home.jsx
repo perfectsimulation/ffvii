@@ -1,8 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
 
-import config from './config';
-import { load } from './helpers/spreadsheet';
 import LoadingIndicator from './helpers/loading-indicator';
 
 import NavBar from './navigation-bar';
@@ -38,8 +36,9 @@ class Home extends Component {
     this.state = {
       chapterContent: [],
       chapterIndex: 0,
-      chapterTitle: 'The Reactor #1 raid',
+      chapterTitle: '0',
       data: [],
+      isLoading: true,
     };
   }
 
@@ -50,6 +49,7 @@ class Home extends Component {
         chapterContent: this.props.data[this.state.chapterIndex].chapterContent,
         chapterTitle: this.props.data[this.state.chapterIndex].chapterTitle,
         data: this.props.data,
+        isLoading: false,
       });
     };
   };
@@ -88,17 +88,13 @@ class Home extends Component {
               goToPreviousChapter={this.goToPreviousChapter}
               goToNextChapter={this.goToNextChapter}
             />
+            <ChapterTitle>
+              {this.state.chapterIndex} - {this.state.chapterTitle}
+            </ChapterTitle>
             {this.state.isLoading && (
               <LoadingIndicator />
             )}
-            {!this.state.isLoading && (
-              <Fragment>
-                <ChapterTitle>
-                  {this.state.chapterIndex} - {this.state.chapterTitle}
-                </ChapterTitle>
-                <Chapter content={this.state.chapterContent}/>
-              </Fragment>
-            )}
+            <Chapter content={this.state.chapterContent}/>
           </HomeContent>
         </HomeContainer>
       </Fragment>

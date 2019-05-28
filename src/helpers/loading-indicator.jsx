@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import LoadingIcon from './../icons/loading.png';
 
 const LoadingTextContainer = styled.div`
-  padding-bottom: 1rem;
+  padding: 1rem;
   font-size: 1.2rem;
 `;
 
