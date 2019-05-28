@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
 
-import Pointer from './icons/point.png';
-import Book from './icons/table-of-contents-icon.png';
+import Pointer from './../icons/point.png';
+import Book from './../icons/table-of-contents-icon.png';
 
 const ChapterNavBarContainer = styled.div`
   padding: 0.6rem;

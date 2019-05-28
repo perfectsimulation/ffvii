@@ -4,8 +4,8 @@ import styled from 'styled-components';
 import LoadingIndicator from './helpers/loading-indicator';
 
 import NavBar from './navigation-bar';
-import ChapterNavBar from './chapter-navigation-bar';
-import Chapter from './chapter';
+import ChapterNavBar from './chapter/chapter-navigation-bar';
+import Chapter from './chapter/chapter';
 
 const HomeContainer = styled.div`
   font-family: "Lucida Console", Monaco, monospace;
