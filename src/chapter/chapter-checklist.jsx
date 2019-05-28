@@ -10,7 +10,6 @@ const ChecklistContainer = styled(Card)`
 
 const ChecklistListContainer = styled.div`
   max-width: 48rem;
-  max-height: 11rem;
   display: flex;
   flex-flow: column wrap;
   text-align: left;
@@ -24,33 +23,30 @@ const ChecklistTitle = styled.p`
 `;
 
 class ChapterChecklist extends Component {
+  constructor() {
+    super();
+    this.state = {
+      list: [],
+    };
+  }
+  componentDidUpdate(prevProps) {
+    if (this.props.list !== prevProps.list) {
+      this.setState({
+        list: this.props.list.split(', '),
+      });
+      console.log(this.props.list.split(', '));
+    };
+  };
+
   render() {
     return (
       <Fragment>
         <ChecklistContainer>
           <ChecklistTitle>Treasure</ChecklistTitle>
           <ChecklistListContainer>
-            <ChapterCheckbox name={'test item'} />
-            <ChapterCheckbox name={'test item'} />
-            <ChapterCheckbox name={'test item'} />
-            <ChapterCheckbox name={'test item'} />
-            <ChapterCheckbox name={'test item'} />
-            <ChapterCheckbox name={'test item'} />
-            <ChapterCheckbox name={'test item'} />
-            <ChapterCheckbox name={'test item'} />
-            <ChapterCheckbox name={'test item'} />
-            <ChapterCheckbox name={'test item'} />
-            <ChapterCheckbox name={'test item'} />
-            <ChapterCheckbox name={'test item'} />
-            <ChapterCheckbox name={'test item'} />
-            <ChapterCheckbox name={'test item'} />
-            <ChapterCheckbox name={'test item'} />
-            <ChapterCheckbox name={'test item'} />
-            <ChapterCheckbox name={'test item'} />
-            <ChapterCheckbox name={'test item'} />
-            <ChapterCheckbox name={'test item'} />
-            <ChapterCheckbox name={'test item'} />
-            <ChapterCheckbox name={'test item'} />
+            {this.state.list.map((item, key) =>
+              <ChapterCheckbox key={key} name={item}/>
+            )}
           </ChecklistListContainer>
         </ChecklistContainer>
       </Fragment>

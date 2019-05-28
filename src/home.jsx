@@ -40,6 +40,7 @@ class Home extends Component {
       chapterContent: [],
       chapterIndex: 0,
       chapterTitle: '0',
+      chapterTreasure: [],
       data: [],
       isLoading: true,
     };
@@ -51,6 +52,7 @@ class Home extends Component {
       this.setState({
         chapterContent: this.props.data[this.state.chapterIndex].chapterContent,
         chapterTitle: this.props.data[this.state.chapterIndex].chapterTitle,
+        chapterTreasure: this.props.data[this.state.chapterIndex].chapterTreasure,
         data: this.props.data,
         isLoading: false,
       });
@@ -58,23 +60,25 @@ class Home extends Component {
   };
 
   refreshGuide = (direction) => {
+    const newIndex = this.state.chapterIndex + direction;
     this.setState((prevState) => ({
-      chapterContent: this.props.data[this.state.chapterIndex + direction].chapterContent,
+      chapterContent: this.props.data[newIndex].chapterContent,
       chapterIndex: prevState.chapterIndex + direction,
-      chapterTitle: this.props.data[this.state.chapterIndex + direction].chapterTitle,
+      chapterTitle: this.props.data[newIndex].chapterTitle,
+      chapterTreasure: this.props.data[newIndex].chapterTreasure,
       data: this.props.data,
     }));
   }
 
   goToPreviousChapter = () => {
-    if (this.state.chapterIndex===0) {
+    if (this.state.chapterIndex === 0) {
       return;
     }
     this.refreshGuide(-1);
   };
 
   goToNextChapter = () => {
-    if (this.state.chapterIndex===42) {
+    if (this.state.chapterIndex === 42) {
       return;
     }
     this.refreshGuide(1);
@@ -94,7 +98,7 @@ class Home extends Component {
             <ChapterTitle>
               {this.state.chapterIndex} - {this.state.chapterTitle}
             </ChapterTitle>
-            <ChapterChecklist />
+            <ChapterChecklist list={this.state.chapterTreasure}/>
             {this.state.isLoading && (
               <LoadingIndicator />
             )}
