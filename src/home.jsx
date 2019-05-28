@@ -36,62 +36,45 @@ class Home extends Component {
   constructor() {
     super();
     this.state = {
-      isLoading: false,
+      chapterContent: [],
       chapterIndex: 0,
       chapterTitle: 'The Reactor #1 raid',
+      data: [],
     };
   }
 
-  componentDidMount() {
-    // 1. Load the JavaScript client library.
-    window.gapi.load("client", this.refreshGuide);
-  };
-
-  refreshGuide = () => {
-    this.setState({
-      isLoading: true,
-    });
-    // 2. Initialize the JavaScript client library.
-    window.gapi.client
-    .init({
-      apiKey: config.apiKey,
-      // Your API key will be automatically added to the Discovery Document URLs.
-      discoveryDocs: config.discoveryDocs
-    })
-    .then(() => {
-    // 3. Initialize and make the API request.
-    load(this.onLoad);
-    });
-  };
-
-  onLoad = (data, error) => {
-    if (data) {
-      const chapters = data.chapters;
+  componentDidUpdate(prevProps) {
+    // Typical usage (don't forget to compare props):
+    if (this.props.data !== prevProps.data) {
       this.setState({
-        isLoading: false,
-        chapterTitle: chapters[this.state.chapterIndex].title,
-        chapterContent: chapters[this.state.chapterIndex].content,
+        chapterContent: this.props.data[this.state.chapterIndex].chapterContent,
+        chapterTitle: this.props.data[this.state.chapterIndex].chapterTitle,
+        data: this.props.data,
       });
-    } else {
-      this.setState({ ...error });
-    }
+    };
   };
+
+  refreshGuide = (direction) => {
+    this.setState((prevState) => ({
+      chapterContent: this.props.data[this.state.chapterIndex + direction].chapterContent,
+      chapterIndex: prevState.chapterIndex + direction,
+      chapterTitle: this.props.data[this.state.chapterIndex + direction].chapterTitle,
+      data: this.props.data,
+    }));
+  }
 
   goToPreviousChapter = () => {
     if (this.state.chapterIndex===0) {
       return;
     }
-    this.setState((prevState) => ({
-      chapterIndex: prevState.chapterIndex - 1,
-    }));
-    this.refreshGuide();
+    this.refreshGuide(-1);
   };
 
   goToNextChapter = () => {
-    this.setState((prevState) => ({
-      chapterIndex: prevState.chapterIndex + 1,
-    }));
-    this.refreshGuide();
+    if (this.state.chapterIndex===42) {
+      return;
+    }
+    this.refreshGuide(1);
   };
 
   render() {
