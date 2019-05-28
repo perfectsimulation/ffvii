@@ -9,6 +9,9 @@ const LoadingTextContainer = styled.div`
 `;
 
 const LoadingIconContainer = styled.img`
+  align-self: center;
+  height: 478px;
+  width: 278px;
 `;
 
 class LoadingIndicator extends Component {

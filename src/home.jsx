@@ -6,6 +6,7 @@ import LoadingIndicator from './helpers/loading-indicator';
 import NavBar from './navigation-bar';
 import ChapterNavBar from './chapter/chapter-navigation-bar';
 import Chapter from './chapter/chapter';
+import ChapterChecklist from './chapter/chapter-checklist';
 
 const HomeContainer = styled.div`
   font-family: "Lucida Console", Monaco, monospace;
@@ -18,6 +19,8 @@ const HomeContainer = styled.div`
 `;
 
 const HomeContent = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
   max-width: 55rem;
   width: 55rem;
   color: #070766;
@@ -91,6 +94,7 @@ class Home extends Component {
             <ChapterTitle>
               {this.state.chapterIndex} - {this.state.chapterTitle}
             </ChapterTitle>
+            <ChapterChecklist />
             {this.state.isLoading && (
               <LoadingIndicator />
             )}
