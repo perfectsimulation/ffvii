@@ -2,22 +2,15 @@ import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
 
 import LoadingIndicator from './helpers/loading-indicator';
-import { Card } from './commons/styles';
+import { Card, PageContainer } from './commons/styles';
 
 import ChapterNavBar from './chapter/chapter-navigation-bar';
 import ChapterWalkthrough from './chapter/chapter-walkthrough';
 import ChapterChecklist from './chapter/chapter-checklist';
 
-const HomeContainer = styled.div`
-  font-family: "Lucida Console", Monaco, monospace;
-  padding: 4.4rem 0 1rem 0;
-  height: 100%;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background: ghostwhite;
+import Map from './map/map';
+
+const HomeContainer = styled(PageContainer)`
 `;
 
 const HomeContent = styled.div`
@@ -96,10 +89,11 @@ class Home extends Component {
     return (
       <Fragment>
         <ChapterNavBar
-            chapterIndex={this.state.chapterIndex}
-            goToPreviousChapter={this.goToPreviousChapter}
-            goToNextChapter={this.goToNextChapter}
-          />
+          chapterIndex={this.state.chapterIndex}
+          goToPreviousChapter={this.goToPreviousChapter}
+          goToNextChapter={this.goToNextChapter}
+        />
+        <Map />
         <HomeContainer>
           {this.state.isLoading && (
             <LoadingIndicator />

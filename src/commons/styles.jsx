@@ -17,3 +17,15 @@ export const CardTitle = styled.p`
   text-align: left;
   font-size: 1.1rem;
 `;
+
+export const PageContainer = styled.div`
+  font-family: "Lucida Console", Monaco, monospace;
+  padding: 4.4rem 0 1rem 0;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: ghostwhite;
+`;
