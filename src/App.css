@@ -24,7 +24,9 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
+	height: 100%;
 	line-height: 1;
+	background: ghostwhite;
 }
 ol, ul {
 	list-style: none;

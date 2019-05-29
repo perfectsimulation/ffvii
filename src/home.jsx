@@ -11,7 +11,9 @@ import ChapterChecklist from './chapter/chapter-checklist';
 const HomeContainer = styled.div`
   font-family: "Lucida Console", Monaco, monospace;
   padding: 1rem;
+  height: 100%;
   display: flex;
+  flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -27,6 +29,10 @@ const HomeContent = styled.div`
   line-height: 1.1rem;
   background: #070766;
   background: ghostwhite;
+
+  ${props => props.isLoading && `
+    display: none;
+  `}
 `;
 
 const ChapterTitle = styled.p`
@@ -89,7 +95,10 @@ class Home extends Component {
       <Fragment>
         <NavBar />
         <HomeContainer>
-          <HomeContent>
+          {this.state.isLoading && (
+            <LoadingIndicator />
+          )}
+          <HomeContent isLoading={this.state.isLoading}>
             <ChapterNavBar
               chapterIndex={this.state.chapterIndex}
               goToPreviousChapter={this.goToPreviousChapter}
@@ -102,9 +111,6 @@ class Home extends Component {
               index={this.state.chapterIndex}
               list={this.state.chapterTreasure}
             />
-            {this.state.isLoading && (
-              <LoadingIndicator />
-            )}
             <Chapter content={this.state.chapterContent}/>
           </HomeContent>
         </HomeContainer>
