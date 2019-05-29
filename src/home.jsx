@@ -2,15 +2,15 @@ import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
 
 import LoadingIndicator from './helpers/loading-indicator';
+import { Card } from './commons/styles';
 
-import NavBar from './commons/navigation-bar';
 import ChapterNavBar from './chapter/chapter-navigation-bar';
 import ChapterWalkthrough from './chapter/chapter-walkthrough';
 import ChapterChecklist from './chapter/chapter-checklist';
 
 const HomeContainer = styled.div`
   font-family: "Lucida Console", Monaco, monospace;
-  padding: 1rem;
+  padding: 4.4rem 0 1rem 0;
   height: 100%;
   display: flex;
   flex-flow: column nowrap;
@@ -35,7 +35,9 @@ const HomeContent = styled.div`
   `}
 `;
 
-const ChapterTitle = styled.p`
+const ChapterTitle = styled(Card)`
+  text-align: center;
+  width: auto;
   font-size: 1.2rem;
 `;
 
@@ -93,17 +95,16 @@ class Home extends Component {
   render() {
     return (
       <Fragment>
-        <NavBar />
+        <ChapterNavBar
+            chapterIndex={this.state.chapterIndex}
+            goToPreviousChapter={this.goToPreviousChapter}
+            goToNextChapter={this.goToNextChapter}
+          />
         <HomeContainer>
           {this.state.isLoading && (
             <LoadingIndicator />
           )}
           <HomeContent isLoading={this.state.isLoading}>
-            <ChapterNavBar
-              chapterIndex={this.state.chapterIndex}
-              goToPreviousChapter={this.goToPreviousChapter}
-              goToNextChapter={this.goToNextChapter}
-            />
             <ChapterTitle>
               {this.state.chapterIndex} - {this.state.chapterTitle}
             </ChapterTitle>

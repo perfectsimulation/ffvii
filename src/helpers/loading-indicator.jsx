@@ -6,6 +6,7 @@ import LoadingIcon from './../icons/loading.png';
 const LoadingTextContainer = styled.div`
   padding : 1rem;
   font-size: 1.2rem;
+  color: #070766;
 `;
 
 const LoadingIconContainer = styled.img`
