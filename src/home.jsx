@@ -3,9 +3,9 @@ import styled from 'styled-components';
 
 import LoadingIndicator from './helpers/loading-indicator';
 
-import NavBar from './navigation-bar';
+import NavBar from './commons/navigation-bar';
 import ChapterNavBar from './chapter/chapter-navigation-bar';
-import Chapter from './chapter/chapter';
+import ChapterWalkthrough from './chapter/chapter-walkthrough';
 import ChapterChecklist from './chapter/chapter-checklist';
 
 const HomeContainer = styled.div`
@@ -111,7 +111,7 @@ class Home extends Component {
               index={this.state.chapterIndex}
               list={this.state.chapterTreasure}
             />
-            <Chapter content={this.state.chapterContent}/>
+            <ChapterWalkthrough content={this.state.chapterContent}/>
           </HomeContent>
         </HomeContainer>
       </Fragment>
