@@ -20,7 +20,7 @@ export const CardTitle = styled.p`
 
 export const PageContainer = styled.div`
   font-family: "Lucida Console", Monaco, monospace;
-  padding: 4.4rem 0 1rem 0;
+  padding: 4rem 0 1rem 0;
   height: 100%;
   display: flex;
   flex-flow: column nowrap;

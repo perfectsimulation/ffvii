@@ -29,6 +29,7 @@ const HomeContent = styled.div`
 `;
 
 const ChapterTitle = styled(Card)`
+  padding: 0.6rem 1rem;
   text-align: center;
   width: auto;
   font-size: 1.2rem;

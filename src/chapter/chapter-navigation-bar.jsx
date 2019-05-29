@@ -1,19 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
 
+import { navigationBar } from './../commons/navigation-bar';
 import Pointer from './../icons/point.png';
 import Book from './../icons/table-of-contents-icon.png';
 
 const ChapterNavBarContainer = styled.div`
-  position: fixed;
-  top: 0;
-  width: 100%;
-  padding: 0.25rem;
-  display: flex;
-  flex-flow: row nowrap;
-  width: 100%;
-  justify-content: center;
-  background: #070744;
 `;
 
 const BackPointerContainer = styled.img`
@@ -62,4 +54,4 @@ class ChapterNavBar extends Component {
   };
 }
 
-export default ChapterNavBar;
+export default navigationBar(ChapterNavBar);
