@@ -65,8 +65,26 @@ class ChapterCheckbox extends Component {
     };
   };
 
-  handleCheckboxChange = event =>
-    this.setState({ checked: event.target.checked });
+  componentDidMount() {
+    // update state based on localStorage
+    if (localStorage.getItem(`${this.props.index}-${this.props.id}`)) {
+      const checkedStatus =
+        localStorage.getItem(`${this.props.index}-${this.props.id}`) === 'true'
+        ? true
+        : false;
+      this.setState({
+        checked: checkedStatus,
+      });
+    }
+  };
+
+  handleCheckboxChange = (event) => {
+    this.setState({
+      checked: event.target.checked
+    });
+    // add change to localStorage
+    this.props.persistChange(this.props.id, event.target.checked);
+  };
 
   render() {
     return (
@@ -80,7 +98,7 @@ class ChapterCheckbox extends Component {
         </LabelContainer>
       </Fragment>
     );
-  }
+  };
 }
 
 export default ChapterCheckbox;

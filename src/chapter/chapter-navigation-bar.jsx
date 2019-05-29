@@ -38,13 +38,24 @@ class ChapterNavBar extends Component {
     return (
       <Fragment>
         <ChapterNavBarContainer>
-          <BackPointerContainer src={Pointer} alt="Previous chapter" onClick={this.props.goToPreviousChapter}/>
-          <TableOfContentsIconContainer src={Book} alt="Table of contents"/>
-          <ForwardPointerContainer src={Pointer} alt="Next chapter" onClick={this.props.goToNextChapter}/>
+          <BackPointerContainer
+            src={Pointer}
+            alt="Previous chapter"
+            onClick={this.props.goToPreviousChapter}
+          />
+          <TableOfContentsIconContainer
+            src={Book}
+            alt="Table of contents"
+          />
+          <ForwardPointerContainer
+            src={Pointer}
+            alt="Next chapter"
+            onClick={this.props.goToNextChapter}
+          />
         </ChapterNavBarContainer>
       </Fragment>
     );
-  }
+  };
 }
 
 export default ChapterNavBar;

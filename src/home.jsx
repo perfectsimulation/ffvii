@@ -44,10 +44,10 @@ class Home extends Component {
       data: [],
       isLoading: true,
     };
-  }
+  };
 
   componentDidUpdate(prevProps) {
-    // Typical usage (don't forget to compare props):
+    // typical usage (don't forget to compare props):
     if (this.props.data !== prevProps.data) {
       this.setState({
         chapterContent: this.props.data[this.state.chapterIndex].chapterContent,
@@ -68,7 +68,7 @@ class Home extends Component {
       chapterTreasure: this.props.data[newIndex].chapterTreasure,
       data: this.props.data,
     }));
-  }
+  };
 
   goToPreviousChapter = () => {
     if (this.state.chapterIndex === 0) {
@@ -98,7 +98,10 @@ class Home extends Component {
             <ChapterTitle>
               {this.state.chapterIndex} - {this.state.chapterTitle}
             </ChapterTitle>
-            <ChapterChecklist list={this.state.chapterTreasure}/>
+            <ChapterChecklist
+              index={this.state.chapterIndex}
+              list={this.state.chapterTreasure}
+            />
             {this.state.isLoading && (
               <LoadingIndicator />
             )}
@@ -107,7 +110,7 @@ class Home extends Component {
         </HomeContainer>
       </Fragment>
     );
-  }
+  };
 }
 
 export default Home;
