@@ -29,7 +29,10 @@ export function navigationBar (SubComponent) {
         <Fragment>
           <NavBarContainer>
             <HomeIconContainer src={HomeIcon} alt="Home" />
-            <SubComponent />
+            <SubComponent
+              goToPreviousChapter={this.props.goToPreviousChapter}
+              goToNextChapter={this.props.goToNextChapter}
+            />
           </NavBarContainer>
         </Fragment>
       );

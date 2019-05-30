@@ -8,8 +8,6 @@ import ChapterNavBar from './chapter/chapter-navigation-bar';
 import ChapterWalkthrough from './chapter/chapter-walkthrough';
 import ChapterChecklist from './chapter/chapter-checklist';
 
-import Map from './map/map';
-
 const HomeContainer = styled(PageContainer)`
 `;
 
@@ -90,11 +88,9 @@ class Home extends Component {
     return (
       <Fragment>
         <ChapterNavBar
-          chapterIndex={this.state.chapterIndex}
           goToPreviousChapter={this.goToPreviousChapter}
           goToNextChapter={this.goToNextChapter}
         />
-        <Map />
         <HomeContainer>
           {this.state.isLoading && (
             <LoadingIndicator />
