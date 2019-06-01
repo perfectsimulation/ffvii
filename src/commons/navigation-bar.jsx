@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
 
-import HomeIcon from './../icons/home.png';
+import SideBar from './sidebar';
 
 const NavBarContainer = styled.div`
   position: fixed;
@@ -9,17 +9,8 @@ const NavBarContainer = styled.div`
   width: 100%;
   display: flex;
   flex-flow: row nowrap;
-  width: 100%;
   justify-content: center;
   background: #070744;
-`;
-
-const HomeIconContainer = styled.img`
-  position: fixed;
-  top: 0.4rem;
-  left: 1rem;
-  height: 2.2rem;
-  cursor: pointer;
 `;
 
 export function navigationBar (SubComponent) {
@@ -28,7 +19,7 @@ export function navigationBar (SubComponent) {
       return (
         <Fragment>
           <NavBarContainer>
-            <HomeIconContainer src={HomeIcon} alt="Home" />
+            <SideBar />
             <SubComponent
               goToPreviousChapter={this.props.goToPreviousChapter}
               goToNextChapter={this.props.goToNextChapter}

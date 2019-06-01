@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
 
-import LoadingIndicator from './helpers/loading-indicator';
 import { Card, PageContainer } from './commons/styles';
+import LoadingIndicator from './helpers/loading-indicator';
 
 import ChapterNavBar from './chapter/chapter-navigation-bar';
 import ChapterWalkthrough from './chapter/chapter-walkthrough';

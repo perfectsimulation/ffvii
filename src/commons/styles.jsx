@@ -29,3 +29,9 @@ export const PageContainer = styled.div`
   text-align: center;
   background: ghostwhite;
 `;
+
+export const Link = styled.a`
+  font-family: "Lucida Console", Monaco, monospace;
+  color: ghostwhite;
+  text-decoration: none;
+`;
