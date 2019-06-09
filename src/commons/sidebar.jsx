@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-import { Link } from './../commons/styles';
 import MenuIcon from './../icons/home.png';
 
 const MenuIconContainer = styled.img`
@@ -31,8 +31,11 @@ const SideBarContainer = styled.div`
   &:hover {
     height: 100vh;
 
-    ${Link} {
+    ${MenuLink} {
       display: inline-block;
+      font-family: "Lucida Console", Monaco, monospace;
+      text-decoration: none;
+      color: ghostwhite;
     }
   }
 `;
@@ -56,10 +59,8 @@ class SideBar extends Component {
       <Fragment>
         <SideBarContainer>
           <MenuIconContainer src={MenuIcon} alt="Menu" onClick={this.openSideBar}/>
-          <MenuLink href='/'>Guide</MenuLink>
-          <MenuLink href='/'>Guide</MenuLink>
-          <MenuLink href='/'>Guide</MenuLink>
-          <MenuLink href='/'>Guide</MenuLink>
+          <MenuLink to='/'>Guide</MenuLink>
+          <MenuLink to='/map'>Map</MenuLink>
         </SideBarContainer>
       </Fragment>
     );

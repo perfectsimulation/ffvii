@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
 
 import { Card, PageContainer } from './../commons/styles';
+import ChapterNavBar from './../chapter/chapter-navigation-bar';
 
 import MapBackground from './../icons/map.png';
 
@@ -28,6 +29,7 @@ class Map extends Component {
   render() {
     return (
       <Fragment>
+        <ChapterNavBar />
         <MapContainer>
           <MapTitle>World Map</MapTitle>
           <MapBackgroundContainer src={MapBackground} alt="Map" />
