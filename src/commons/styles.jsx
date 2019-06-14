@@ -18,6 +18,12 @@ export const CardTitle = styled.p`
   font-size: 1.1rem;
 `;
 
+export const Link = styled.a`
+  font-family: "Lucida Console", Monaco, monospace;
+  color: ghostwhite;
+  text-decoration: none;
+`;
+
 export const PageContainer = styled.div`
   font-family: "Lucida Console", Monaco, monospace;
   padding: 4rem 0 1rem 0;
@@ -30,8 +36,10 @@ export const PageContainer = styled.div`
   background: ghostwhite;
 `;
 
-export const Link = styled.a`
-  font-family: "Lucida Console", Monaco, monospace;
-  color: ghostwhite;
-  text-decoration: none;
+export const PageTitle = styled(Card)`
+  padding: 0.6rem 1rem;
+  text-align: center;
+  width: auto;
+  font-size: 1.2rem;
+  color: #070766;
 `;
