@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link as RRDLink } from 'react-router-dom';
 
 export const Card = styled.div`
   margin: 1rem;
@@ -10,6 +11,7 @@ export const Card = styled.div`
   width: 90%;
   box-shadow: 0 0 1px 2px #070766;
   background: white;
+  color: #070766;
 `;
 
 export const CardTitle = styled.p`
@@ -18,10 +20,11 @@ export const CardTitle = styled.p`
   font-size: 1.1rem;
 `;
 
-export const Link = styled.a`
+export const Link = styled(RRDLink)`
   font-family: "Lucida Console", Monaco, monospace;
   color: ghostwhite;
   text-decoration: none;
+  text-align: left;
 `;
 
 export const PageContainer = styled.div`

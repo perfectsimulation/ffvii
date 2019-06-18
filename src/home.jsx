@@ -41,32 +41,38 @@ class Home extends Component {
       chapterIndex: 0,
       chapterTitle: '0',
       chapterTreasure: [],
-      data: [],
+      enemies: [],
+      guide: [],
       isLoading: true,
     };
   };
 
   componentDidUpdate(prevProps) {
     // typical usage (don't forget to compare props):
-    if (this.props.data !== prevProps.data) {
+    if (this.props.guide !== prevProps.guide) {
       this.setState({
-        chapterContent: this.props.data[this.state.chapterIndex].chapterContent,
-        chapterTitle: this.props.data[this.state.chapterIndex].chapterTitle,
-        chapterTreasure: this.props.data[this.state.chapterIndex].chapterTreasure,
-        data: this.props.data,
+        chapterContent: this.props.guide[this.state.chapterIndex].chapterContent,
+        chapterTitle: this.props.guide[this.state.chapterIndex].chapterTitle,
+        chapterTreasure: this.props.guide[this.state.chapterIndex].chapterTreasure,
+        guide: this.props.guide,
         isLoading: false,
       });
     };
+    if (this.props.enemies !== prevProps.enemies) {
+      this.setState({
+        enemies: this.props.enemies,
+      });
+    }
   };
 
   refreshGuide = (direction) => {
     const newIndex = this.state.chapterIndex + direction;
     this.setState((prevState) => ({
-      chapterContent: this.props.data[newIndex].chapterContent,
+      chapterContent: this.props.guide[newIndex].chapterContent,
       chapterIndex: prevState.chapterIndex + direction,
-      chapterTitle: this.props.data[newIndex].chapterTitle,
-      chapterTreasure: this.props.data[newIndex].chapterTreasure,
-      data: this.props.data,
+      chapterTitle: this.props.guide[newIndex].chapterTitle,
+      chapterTreasure: this.props.guide[newIndex].chapterTreasure,
+      guide: this.props.guide,
     }));
   };
 

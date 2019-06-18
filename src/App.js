@@ -8,7 +8,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      data: [],
+      chaptersData: [],
+      enemiesData: [],
     };
   };
 
@@ -18,7 +19,17 @@ class App extends Component {
       callback: googleData => {
         // console.log(googleData);
         this.setState({
-          data: googleData,
+          chaptersData: googleData,
+        });
+      },
+      simpleSheet: true,
+    });
+    Tabletop.init({
+      key: '1oMOT58tMqIowgt1wK_xDo0c1RkIfRn0K6wPMhcgG-wk',
+      callback: googleData => {
+        // console.log(googleData);
+        this.setState({
+          enemiesData: googleData,
         });
       },
       simpleSheet: true,
@@ -28,7 +39,10 @@ class App extends Component {
   render() {
     return (
       <Fragment>
-        <Home data={this.state.data}/>
+        <Home
+          guide={this.state.chaptersData}
+          enemies={this.state.enemiesData}
+        />
       </Fragment>
     );
   }

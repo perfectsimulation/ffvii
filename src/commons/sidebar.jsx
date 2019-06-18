@@ -36,6 +36,7 @@ const SideBarContainer = styled.div`
       font-family: "Lucida Console", Monaco, monospace;
       text-decoration: none;
       color: ghostwhite;
+      text-align: left;
     }
   }
 `;
@@ -61,6 +62,7 @@ class SideBar extends Component {
           <MenuIconContainer src={MenuIcon} alt="Menu" onClick={this.openSideBar}/>
           <MenuLink to='/'>Guide</MenuLink>
           <MenuLink to='/map'>Map</MenuLink>
+          <MenuLink to='/enemy'>Enemies</MenuLink>
         </SideBarContainer>
       </Fragment>
     );

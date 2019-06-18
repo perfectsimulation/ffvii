@@ -33,9 +33,13 @@ import SunkenGelnika from './map/sunken-gelnika';
 import TempleOfTheAncients from './map/temple-of-the-ancients';
 import Wutai from './map/wutai';
 
+import EnemyList from './enemy/enemy-list';
+import EnemyDetail from './enemy/enemy-detail';
+
 const routing = (
   <Router>
     <Route exact path='/' component={App} />
+    { /* Map */ }
     <Route exact path='/map' component={Map} />
     <Route path='/map/ancient-forest' component={AncientForest} />
     <Route path='/map/bone-village' component={BoneVillage} />
@@ -63,6 +67,9 @@ const routing = (
     <Route path='/map/sunken-gelnika' component={SunkenGelnika} />
     <Route path='/map/temple-of-the-ancients' component={TempleOfTheAncients} />
     <Route path='/map/wutai' component={Wutai} />
+    { /* Enemy Encyclopedia */ }
+    <Route exact path='/enemy' component={EnemyList} />
+    <Route path='/enemy/:enemyName' component={EnemyDetail} />
   </Router>
 );
 
