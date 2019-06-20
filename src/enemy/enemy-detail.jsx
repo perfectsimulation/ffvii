@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
 
 import { Card, PageContainer, PageTitle } from '../commons/styles';
-import ChapterNavBar from '../chapter/chapter-navigation-bar';
+import SideBar from '../commons/sidebar';
 
 const EnemyCard = styled(Card)`
   text-align: left;
@@ -17,7 +17,7 @@ class EnemyDetail extends Component {
   render() {
     return (
       <Fragment>
-        <ChapterNavBar />
+        <SideBar />
         <PageContainer>
           <PageTitle>{this.props.location.state.name}</PageTitle>
           <EnemyPhoto src={this.props.location.state.photoUrl} alt={this.props.location.state.name}/>

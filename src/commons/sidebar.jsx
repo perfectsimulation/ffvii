@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import MenuIcon from './../icons/home.png';
+import MenuIcon from '../icons/home.png';
 
 const MenuIconContainer = styled.img`
   height: 2.2rem;
@@ -23,21 +23,16 @@ const SideBarContainer = styled.div`
   top: 0;
   left: 0;
   width: 6rem;
-  height: 3.2rem;
+  height: 100vh;
   background: #070744;
   color: ghostwhite;
-  transition: all 0.7s;
 
-  &:hover {
-    height: 100vh;
-
-    ${MenuLink} {
-      display: inline-block;
-      font-family: "Lucida Console", Monaco, monospace;
-      text-decoration: none;
-      color: ghostwhite;
-      text-align: left;
-    }
+  ${MenuLink} {
+    display: inline-block;
+    font-family: "Lucida Console", Monaco, monospace;
+    text-decoration: none;
+    color: ghostwhite;
+    text-align: left;
   }
 `;
 

@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
 
-import { Card, CardTitle } from './../commons/styles';
+import { Card, CardTitle } from '../commons/styles';
 
 import ChapterCheckbox from './chapter-checkbox';
 

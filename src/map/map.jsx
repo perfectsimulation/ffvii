@@ -1,11 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
 
-import { Card, PageContainer, PageTitle } from './../commons/styles';
-import ChapterNavBar from './../chapter/chapter-navigation-bar';
+import { Card, PageContainer, PageTitle } from '../commons/styles';
+import SideBar from '../commons/sidebar';
 import MapPin from './map-pin';
 
-import MapBackground from './../icons/map.png';
+import MapBackground from '../icons/map.png';
 
 const MapContainer = styled(PageContainer)`
 `;
@@ -30,7 +30,7 @@ class Map extends Component {
   render() {
     return (
       <Fragment>
-        <ChapterNavBar />
+        <SideBar />
         <MapContainer>
           <PageTitle>Gaea</PageTitle>
           <MapPin

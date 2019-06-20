@@ -4,11 +4,12 @@ import styled from 'styled-components';
 import { Card, PageContainer } from './commons/styles';
 import LoadingIndicator from './helpers/loading-indicator';
 
-import ChapterNavBar from './chapter/chapter-navigation-bar';
+import ChapterNavigation from './chapter/chapter-navigation';
 import ChapterWalkthrough from './chapter/chapter-walkthrough';
 import ChapterChecklist from './chapter/chapter-checklist';
 
 const HomeContainer = styled(PageContainer)`
+  padding-top: 0;
 `;
 
 const HomeContent = styled.div`
@@ -93,7 +94,7 @@ class Home extends Component {
   render() {
     return (
       <Fragment>
-        <ChapterNavBar
+        <ChapterNavigation
           goToPreviousChapter={this.goToPreviousChapter}
           goToNextChapter={this.goToNextChapter}
         />

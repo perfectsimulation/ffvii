@@ -1,11 +1,16 @@
 import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
 
-import { navigationBar } from './../commons/navigation-bar';
-import Pointer from './../icons/point.png';
-import Book from './../icons/table-of-contents-icon.png';
+import SideBar from '../commons/sidebar';
 
-const ChapterNavBarContainer = styled.div`
+import Pointer from '../icons/point.png';
+import Book from '../icons/table-of-contents-icon.png';
+
+const ChapterNavigationContainer = styled.div`
+  padding-top: 1rem;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
 `;
 
 const BackPointerContainer = styled.img`
@@ -29,11 +34,12 @@ const ForwardPointerContainer = styled.img`
   cursor: pointer;
 `;
 
-class ChapterNavBar extends Component {
+class ChapterNavigation extends Component {
   render() {
     return (
       <Fragment>
-        <ChapterNavBarContainer>
+        <SideBar />
+        <ChapterNavigationContainer>
           <BackPointerContainer
             src={Pointer}
             alt="Previous chapter"
@@ -48,10 +54,10 @@ class ChapterNavBar extends Component {
             alt="Next chapter"
             onClick={this.props.goToNextChapter}
           />
-        </ChapterNavBarContainer>
+        </ChapterNavigationContainer>
       </Fragment>
     );
   };
 }
 
-export default navigationBar(ChapterNavBar);
+export default ChapterNavigation;

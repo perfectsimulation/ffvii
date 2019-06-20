@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
 
-import LoadingIcon from './../icons/loading.png';
+import LoadingIcon from '../icons/loading.png';
 
 const LoadingTextContainer = styled.div`
   padding : 1rem;

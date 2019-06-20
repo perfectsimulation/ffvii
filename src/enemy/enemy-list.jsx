@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Tabletop from 'tabletop';
 
 import { Card, Link as RRDLink, PageContainer, PageTitle } from '../commons/styles';
-import ChapterNavBar from '../chapter/chapter-navigation-bar';
+import SideBar from '../commons/sidebar';
 
 const Link = styled(RRDLink)`
   text-align: left;
@@ -59,7 +59,7 @@ class EnemyList extends Component {
   render() {
     return (
       <Fragment>
-        <ChapterNavBar />
+        <SideBar />
         <PageContainer>
           <PageTitle>
             Enemy Encyclopedia
