@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
 
-import PinIcon from '../icons/map-pin.png';
+import PinIcon from '../images/map-pin.png';
 
 const MapPinContainer = styled.div`
   position: absolute;

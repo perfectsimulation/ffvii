@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import MenuIcon from '../icons/home.png';
+import MenuIcon from '../images/home.png';
 
 const MenuIconContainer = styled.img`
   height: 2.2rem;

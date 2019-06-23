@@ -5,7 +5,7 @@ import { Card, PageContainer, PageTitle } from '../commons/styles';
 import SideBar from '../commons/sidebar';
 import MapPin from './map-pin';
 
-import MapBackground from '../icons/map.png';
+import MapBackground from '../images/map.png';
 
 const MapContainer = styled(PageContainer)`
 `;

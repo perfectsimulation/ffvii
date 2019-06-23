@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 import SideBar from '../commons/sidebar';
 
-import Pointer from '../icons/point.png';
-import Book from '../icons/table-of-contents-icon.png';
+import Pointer from '../images/point.png';
+import Book from '../images/table-of-contents-icon.png';
 
 const ChapterNavigationContainer = styled.div`
   padding-top: 1rem;
