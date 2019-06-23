@@ -1,16 +1,18 @@
 import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link } from '../commons/styles';
 
-import MenuIcon from '../images/home.png';
+import HomeIconImage from '../images/home.png';
 
-const MenuIconContainer = styled.img`
+const HomeLink = styled(Link)``;
+
+const HomeIcon = styled.img`
   height: 2.2rem;
   width: 2.2rem;
   cursor: pointer;
 `;
 
-const MenuLink = styled(Link)`
+const SideBarLink = styled(Link)`
   display: none;
   padding: 1rem 0.1rem 0 0.1rem;
 `;
@@ -24,10 +26,11 @@ const SideBarContainer = styled.div`
   left: 0;
   width: 6rem;
   height: 100vh;
+  z-index: 2;
   background: #070744;
   color: ghostwhite;
 
-  ${MenuLink} {
+  ${SideBarLink} {
     display: inline-block;
     font-family: "Lucida Console", Monaco, monospace;
     text-decoration: none;
@@ -37,27 +40,16 @@ const SideBarContainer = styled.div`
 `;
 
 class SideBar extends Component {
-  constructor() {
-    super();
-    this.state = {
-      isOpen: false,
-    };
-  };
-
-  openSideBar = () => {
-    this.setState({
-      isOpen: true,
-    });
-  };
-
   render() {
     return (
       <Fragment>
         <SideBarContainer>
-          <MenuIconContainer src={MenuIcon} alt="Menu" onClick={this.openSideBar}/>
-          <MenuLink to='/'>Guide</MenuLink>
-          <MenuLink to='/map'>Map</MenuLink>
-          <MenuLink to='/enemy'>Enemies</MenuLink>
+          <HomeLink to='/'>
+            <HomeIcon src={HomeIconImage} alt="Home" />
+          </HomeLink>
+          <SideBarLink to='/guide'>Guide</SideBarLink>
+          <SideBarLink to='/map'>Map</SideBarLink>
+          <SideBarLink to='/enemy'>Enemies</SideBarLink>
         </SideBarContainer>
       </Fragment>
     );

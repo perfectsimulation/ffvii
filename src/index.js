@@ -5,6 +5,8 @@ import App from './App';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 
+import Guide from './chapter/guide';
+
 import Map from './map/map';
 import AncientForest from './map/ancient-forest';
 import BoneVillage from './map/bone-village';
@@ -38,8 +40,10 @@ import EnemyDetail from './enemy/enemy-detail';
 
 const routing = (
   <Router>
-    <Route exact path='/' component={App} />
+    { /* Guide */ }
+    <Route path='/guide' component={Guide} />
     { /* Map */ }
+    <Route exact path='/' component={App} />
     <Route exact path='/map' component={Map} />
     <Route path='/map/ancient-forest' component={AncientForest} />
     <Route path='/map/bone-village' component={BoneVillage} />
