@@ -9,7 +9,6 @@ class App extends Component {
     super();
     this.state = {
       chaptersData: [],
-      enemiesData: [],
     };
   };
 
@@ -24,16 +23,6 @@ class App extends Component {
       },
       simpleSheet: true,
     });
-    Tabletop.init({
-      key: '1oMOT58tMqIowgt1wK_xDo0c1RkIfRn0K6wPMhcgG-wk',
-      callback: googleData => {
-        // console.log(googleData);
-        this.setState({
-          enemiesData: googleData,
-        });
-      },
-      simpleSheet: true,
-    });
   };
 
   render() {
@@ -41,7 +30,6 @@ class App extends Component {
       <Fragment>
         <Home
           guide={this.state.chaptersData}
-          enemies={this.state.enemiesData}
         />
       </Fragment>
     );

@@ -42,7 +42,6 @@ class Home extends Component {
       chapterIndex: 0,
       chapterTitle: '0',
       chapterTreasure: [],
-      enemies: [],
       guide: [],
       isLoading: true,
     };
@@ -59,11 +58,6 @@ class Home extends Component {
         isLoading: false,
       });
     };
-    if (this.props.enemies !== prevProps.enemies) {
-      this.setState({
-        enemies: this.props.enemies,
-      });
-    }
   };
 
   refreshGuide = (direction) => {
